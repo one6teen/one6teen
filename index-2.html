@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="One6Teen Foundation - UNASHAMED. Restoring intentional mentorship and relational leadership in the lives of young people across South Africa.">
+<meta property="og:title" content="One6Teen Foundation - UNASHAMED">
+<meta property="og:description" content="Not a resource problem. A formation problem.">
+<meta property="og:url" content="https://one6teen.com">
+<title>One6Teen Foundation - UNASHAMED</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  a { color: inherit; text-decoration: none; }
+  a:visited { color: inherit; }
+  :root {
+    --black: #0A0A0A; --dark: #141414; --card: #1E1E1E; --mid: #2A2A2A;
+    --border: #333333; --red: #B5271A; --dred: #8B1D14; --blood: #6B1510;
+    --white: #FFFFFF; --gray: #888888; --lgray: #CCCCCC; --mgray: #555555; --green: #1F5C3E;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--black); color: var(--lgray); font-family: Georgia, serif; overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,10,10,0.97); border-bottom: 1px solid var(--border); padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo-num { font-size: 22px; font-weight: bold; color: var(--white); letter-spacing: -1px; }
+  .nav-logo-div { width: 1px; height: 20px; background: var(--red); }
+  .nav-logo-text { font-size: 10px; color: var(--gray); letter-spacing: 4px; font-family: sans-serif; }
+  .nav-links { display: flex; gap: 2px; }
+  .nav-links a { color: var(--gray); text-decoration: none; padding: 6px 10px; font-size: 10px; font-family: sans-serif; letter-spacing: 1.5px; border-bottom: 2px solid transparent; transition: all 0.2s; }
+  .nav-links a:hover { color: var(--red); }
+  .nav-links a.active { color: var(--red); border-bottom: 2px solid var(--red); }
+  .nav-give { background: var(--red); color: var(--white); text-decoration: none; padding: 8px 20px; font-size: 10px; font-family: sans-serif; letter-spacing: 2px; font-weight: bold; }
+
+  /* SECTIONS */
+  section { padding: 100px 48px; }
+  .inner { max-width: 1100px; margin: 0 auto; }
+  .eyebrow { font-size: 10px; letter-spacing: 5px; color: var(--red); font-family: sans-serif; margin-bottom: 16px; font-weight: bold; }
+  h2 { font-size: clamp(28px, 4vw, 52px); font-weight: bold; color: var(--white); line-height: 1.1; margin-bottom: 20px; }
+  .body-text { font-size: 14px; color: var(--gray); font-family: sans-serif; line-height: 1.8; }
+
+  /* HERO */
+  #home { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 120px 48px 100px; position: relative; overflow: hidden; background: linear-gradient(135deg, var(--blood) 0%, var(--black) 45%, var(--dark) 100%); }
+  .hero-bg-116 { position: absolute; right: -60px; top: 50%; transform: translateY(-50%); font-size: clamp(180px, 28vw, 400px); font-weight: bold; color: rgba(181,39,26,0.05); line-height: 1; user-select: none; pointer-events: none; }
+  .hero-content { max-width: 760px; position: relative; }
+  .hero-eyebrow { font-size: 11px; letter-spacing: 5px; color: var(--red); font-family: sans-serif; margin-bottom: 28px; font-weight: bold; }
+  h1 { font-size: clamp(40px, 7vw, 84px); font-weight: bold; color: var(--white); line-height: 1.05; margin-bottom: 28px; letter-spacing: -2px; }
+  h1 span { color: var(--red); }
+  .hero-sub { font-size: 17px; color: var(--lgray); line-height: 1.8; max-width: 560px; margin-bottom: 40px; font-style: italic; }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary { background: var(--red); border: none; cursor: pointer; padding: 14px 32px; font-size: 12px; font-family: sans-serif; letter-spacing: 2px; color: var(--white); font-weight: bold; text-decoration: none; display: inline-block; }
+  .btn-outline { background: none; border: 1px solid var(--border); cursor: pointer; padding: 14px 32px; font-size: 12px; font-family: sans-serif; letter-spacing: 2px; color: var(--lgray); text-decoration: none; display: inline-block; }
+  .stats-strip { position: absolute; bottom: 0; left: 0; right: 0; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--border); background: rgba(0,0,0,0.55); }
+  .stat { padding: 20px 24px; border-right: 1px solid var(--border); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 26px; font-weight: bold; color: var(--red); line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--gray); font-family: sans-serif; margin-top: 6px; line-height: 1.4; }
+
+  /* ABOUT */
+  #about { background: var(--dark); }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+  .about-text p { font-size: 15px; color: var(--gray); font-family: sans-serif; line-height: 1.85; margin-bottom: 18px; }
+  .block-card { background: var(--card); border-left: 4px solid var(--red); padding: 20px 24px; margin-bottom: 14px; }
+  .block-label { font-size: 9px; letter-spacing: 4px; color: var(--red); font-family: sans-serif; margin-bottom: 10px; }
+  .block-text { font-size: 13px; line-height: 1.75; color: var(--lgray); font-style: italic; font-family: sans-serif; }
+  .values-box { background: var(--dred); padding: 20px 24px; }
+  .values-label { font-size: 9px; letter-spacing: 4px; color: #FFCCCC; font-family: sans-serif; margin-bottom: 12px; }
+  .values-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .value-tag { font-size: 11px; font-family: sans-serif; color: var(--white); background: rgba(0,0,0,0.3); padding: 4px 10px; letter-spacing: 1px; }
+
+  /* PROGRAMMES */
+  #programmes { background: var(--black); }
+  .section-header { text-align: center; margin-bottom: 56px; }
+  .section-header p { font-size: 14px; color: var(--gray); max-width: 520px; margin: 0 auto; font-family: sans-serif; line-height: 1.7; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .prog-card { background: var(--card); border-top: 3px solid var(--red); padding: 26px 22px; position: relative; transition: transform 0.2s; }
+  .prog-card:hover { transform: translateY(-4px); }
+  .prog-card.green { border-top-color: var(--green); }
+  .prog-tag { position: absolute; top: 14px; right: 14px; font-size: 8px; letter-spacing: 2px; color: var(--red); font-family: sans-serif; font-weight: bold; }
+  .prog-card.green .prog-tag { color: var(--green); }
+  .prog-card h3 { font-size: 15px; color: var(--white); font-weight: bold; margin-bottom: 12px; padding-right: 60px; }
+  .prog-card p { font-size: 12px; color: var(--gray); font-family: sans-serif; line-height: 1.7; }
+
+  /* PASS IT DOWN */
+  #passitdown { background: var(--dark); }
+  .pid-intro { margin-bottom: 52px; }
+  .pid-intro p { font-size: 16px; color: var(--lgray); max-width: 680px; line-height: 1.8; font-style: italic; }
+  .pid-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-bottom: 32px; }
+  .pid-card { padding: 36px 28px; border-top: 4px solid var(--red); }
+  .pid-card.red-bg { background: var(--dred); }
+  .pid-card.dark-bg { background: var(--card); }
+  .pid-card.green-bg { background: var(--green); }
+  .pid-tier { font-size: 9px; letter-spacing: 4px; color: rgba(255,255,255,0.45); font-family: sans-serif; margin-bottom: 10px; }
+  .pid-card h3 { font-size: 22px; color: var(--white); font-weight: bold; margin-bottom: 8px; }
+  .pid-sub { font-size: 10px; color: rgba(255,255,255,0.55); font-family: sans-serif; margin-bottom: 20px; }
+  .pid-divider { width: 36px; height: 2px; background: var(--red); margin-bottom: 20px; }
+  .pid-card p { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.75; font-family: sans-serif; }
+  .pid-why { background: var(--mid); border-left: 4px solid var(--red); padding: 22px 28px; }
+  .pid-why strong { font-size: 11px; color: var(--red); font-family: sans-serif; font-weight: bold; letter-spacing: 2px; }
+  .pid-why span { font-size: 14px; color: var(--lgray); font-style: italic; }
+
+  /* CAMP */
+  #camp { background: var(--black); }
+  .camp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+  .camp-left p { font-size: 14px; color: var(--gray); font-family: sans-serif; line-height: 1.85; margin-bottom: 18px; }
+  .camp-quote { font-style: italic; font-size: 14px; color: var(--lgray); border-left: 3px solid var(--red); padding-left: 20px; line-height: 1.75; }
+  .camp-hearts { display: flex; flex-direction: column; gap: 14px; }
+  .heart-card { background: var(--card); padding: 18px 22px; border-left: 3px solid var(--red); }
+  .heart-card h4 { font-size: 12px; color: var(--white); font-weight: bold; font-family: sans-serif; margin-bottom: 6px; }
+  .heart-card p { font-size: 12px; color: var(--gray); font-family: sans-serif; line-height: 1.6; }
+
+  /* COLLECTIVE */
+  #collective { background: var(--dark); position: relative; overflow: hidden; }
+  .collective-bg { position: absolute; right: -80px; top: 50%; transform: translateY(-50%); font-size: 280px; font-weight: bold; color: rgba(181,39,26,0.04); line-height: 1; user-select: none; }
+  .collective-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; position: relative; }
+  .collective-left { background: var(--dred); padding: 56px 44px; }
+  .collective-left h2 { font-size: clamp(24px,3vw,44px); }
+  .collective-left p { font-size: 14px; color: #FFDDDD; line-height: 1.85; font-family: sans-serif; margin-bottom: 20px; }
+  .collective-quote { font-style: italic; font-size: 15px; color: var(--white); border-top: 1px solid rgba(255,255,255,0.15); padding-top: 24px; line-height: 1.65; }
+  .collective-right p { font-size: 15px; line-height: 1.85; margin-bottom: 32px; color: var(--lgray); }
+  .platform-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; }
+  .platform-item { display: flex; align-items: center; gap: 12px; font-family: sans-serif; font-size: 13px; color: var(--lgray); }
+  .platform-item span { color: var(--red); font-size: 14px; }
+
+  /* INVOLVE */
+  #involve { background: var(--black); }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .involve-card { background: var(--card); padding: 34px 30px; border-top: 3px solid var(--red); }
+  .involve-who { font-size: 9px; letter-spacing: 3px; color: var(--red); font-family: sans-serif; margin-bottom: 10px; }
+  .involve-card h3 { font-size: 19px; color: var(--white); font-weight: bold; margin-bottom: 14px; }
+  .involve-card p { font-size: 13px; color: var(--gray); font-family: sans-serif; line-height: 1.75; margin-bottom: 22px; }
+  .btn-red-outline { background: none; border: 1px solid var(--red); cursor: pointer; padding: 9px 18px; font-size: 10px; font-family: sans-serif; letter-spacing: 2px; color: var(--red); text-decoration: none; display: inline-block; transition: all 0.2s; }
+  .btn-red-outline:hover { background: var(--red); color: var(--white); }
+
+  /* DONATE */
+  #donate { background: var(--dark); }
+  .donate-header p { font-size: 14px; color: var(--gray); max-width: 520px; margin: 0 auto; font-family: sans-serif; line-height: 1.7; }
+  .tabs { display: flex; border-bottom: 1px solid var(--border); margin-bottom: 32px; }
+  .tab { background: none; border: none; cursor: pointer; padding: 12px 24px; font-size: 11px; font-family: sans-serif; letter-spacing: 2px; font-weight: bold; color: var(--gray); border-bottom: 3px solid transparent; margin-bottom: -1px; transition: all 0.2s; }
+  .tab.active { color: var(--white); border-bottom: 3px solid var(--red); }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .tier-card { background: var(--card); border-top: 3px solid var(--red); padding: 26px 22px; }
+  .tier-name { font-size: 10px; color: var(--gray); font-family: sans-serif; letter-spacing: 1px; margin-bottom: 8px; }
+  .tier-amount { font-size: 34px; color: var(--red); font-weight: bold; line-height: 1; margin-bottom: 4px; }
+  .tier-freq { font-size: 10px; color: var(--gray); font-family: sans-serif; margin-bottom: 16px; }
+  .tier-divider { width: 28px; height: 2px; background: var(--red); margin-bottom: 16px; }
+  .tier-impact { font-size: 12px; color: var(--gray); font-family: sans-serif; line-height: 1.7; }
+  .once-row { display: flex; justify-content: space-between; align-items: center; padding: 18px 26px; border-left: 4px solid var(--red); margin-bottom: 10px; }
+  .once-row:nth-child(odd) { background: var(--card); }
+  .once-row:nth-child(even) { background: var(--mid); }
+  .once-amount { font-size: 22px; color: var(--red); font-weight: bold; min-width: 110px; }
+  .once-impact { flex: 1; padding-left: 24px; font-size: 14px; color: var(--lgray); font-family: sans-serif; line-height: 1.6; }
+  .costs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .cost-label { font-size: 10px; letter-spacing: 3px; font-family: sans-serif; margin-bottom: 18px; font-weight: bold; }
+  .cost-label.red { color: var(--red); }
+  .cost-label.green { color: var(--green); }
+  .cost-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); font-family: sans-serif; font-size: 13px; }
+  .cost-name { color: var(--lgray); }
+  .cost-val { font-weight: bold; }
+  .cost-val.red { color: var(--red); }
+  .cost-val.green { color: #5CB88A; }
+  .cost-total { display: flex; justify-content: space-between; padding: 14px 0; font-family: sans-serif; font-size: 15px; font-weight: bold; }
+  .allin-box { background: var(--dred); padding: 16px 20px; margin-top: 0; }
+  .allin-label { font-family: sans-serif; font-size: 10px; color: #FFCCCC; margin-bottom: 4px; }
+  .allin-amount { font-size: 28px; color: var(--white); font-weight: bold; }
+  .allin-sub { font-family: sans-serif; font-size: 10px; color: #FFCCCC; margin-top: 4px; }
+  .banking-bar { margin-top: 44px; background: var(--dred); padding: 26px 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .banking-label { font-size: 9px; letter-spacing: 4px; color: #FFCCCC; font-family: sans-serif; margin-bottom: 8px; }
+  .banking-details { font-size: 14px; color: var(--white); font-family: sans-serif; font-weight: bold; }
+  .banking-ref { font-size: 11px; color: #FFCCCC; font-family: sans-serif; margin-top: 4px; }
+  .banking-right { text-align: right; font-size: 11px; color: #FFCCCC; font-family: sans-serif; line-height: 1.8; }
+
+  /* CONTACT */
+  #contact { background: var(--black); }
+  .contact-inner { max-width: 820px; margin: 0 auto; text-align: center; }
+  .contact-inner > p { font-size: 14px; color: var(--gray); max-width: 520px; margin: 0 auto 56px; font-family: sans-serif; line-height: 1.8; }
+  .contact-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 32px; }
+  .contact-card { background: var(--card); padding: 26px 20px; border-top: 3px solid var(--red); }
+  .contact-label { font-size: 9px; letter-spacing: 4px; color: var(--red); font-family: sans-serif; margin-bottom: 10px; }
+  .contact-value { font-size: 13px; color: var(--white); font-weight: bold; margin-bottom: 6px; }
+  .contact-sub { font-size: 11px; color: var(--gray); font-family: sans-serif; }
+  .location-box { background: var(--card); padding: 28px 32px; border-left: 4px solid var(--red); text-align: left; }
+  .location-label { font-size: 9px; letter-spacing: 4px; color: var(--red); font-family: sans-serif; margin-bottom: 12px; }
+  .location-city { font-size: 14px; color: var(--white); margin-bottom: 8px; }
+  .location-desc { font-size: 13px; color: var(--gray); font-family: sans-serif; line-height: 1.7; }
+
+  /* FOOTER */
+  footer { background: var(--black); border-top: 1px solid var(--border); padding: 36px 48px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  .footer-brand { font-size: 18px; font-weight: bold; color: var(--white); margin-bottom: 4px; }
+  .footer-tagline { font-size: 9px; letter-spacing: 4px; color: var(--red); font-family: sans-serif; }
+  .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+  .footer-links a { color: var(--gray); text-decoration: none; font-size: 10px; font-family: sans-serif; letter-spacing: 1px; }
+  .footer-links a:hover { color: var(--red); }
+  .footer-info { font-size: 10px; color: var(--mgray); font-family: sans-serif; text-align: right; line-height: 2; }
+
+  @media (max-width: 768px) {
+    section { padding: 80px 24px; }
+    .two-col, .camp-grid, .collective-grid, .costs-grid { grid-template-columns: 1fr; gap: 40px; }
+    .grid-3 { grid-template-columns: 1fr; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .stats-strip { grid-template-columns: repeat(2, 1fr); }
+    .contact-cards { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .pid-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#home" class="nav-logo">
+    <span class="nav-logo-num">116</span>
+    <span class="nav-logo-div"></span>
+    <span class="nav-logo-text">UNASHAMED</span>
+  </a>
+  <div class="nav-links">
+    <a href="#about">ABOUT</a>
+    <a href="#programmes">PROGRAMMES</a>
+    <a href="#passitdown">PASS IT DOWN</a>
+    <a href="#camp">THE CAMP</a>
+    <a href="#collective">116 COLLECTIVE</a>
+    <a href="#involve">GET INVOLVED</a>
+    <a href="#donate">DONATE</a>
+    <a href="#contact">CONTACT</a>
+  </div>
+  <a href="#donate" class="nav-give">GIVE NOW</a>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg-116">116</div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">ONE6TEEN FOUNDATION &nbsp;|&nbsp; ROMANS 1:16 &nbsp;|&nbsp; NPC K2026049908</div>
+    <h1>Not a resource<br>problem.<br><span>A formation problem.</span></h1>
+    <p class="hero-sub">Information without formation produces a directionless generation. One6Teen exists to step into the gap with mentorship, faith, creative expression, and sport.</p>
+    <div class="hero-btns">
+      <a href="#about" class="btn-primary">OUR STORY</a>
+      <a href="#involve" class="btn-outline">GET INVOLVED</a>
+    </div>
+  </div>
+  <div class="stats-strip">
+    <div class="stat"><div class="stat-num">64.5%</div><div class="stat-label">of SA children grow up without their father</div></div>
+    <div class="stat"><div class="stat-num">62.4%</div><div class="stat-label">youth aged 15-24 are unemployed</div></div>
+    <div class="stat"><div class="stat-num">1 in 3</div><div class="stat-label">young people will never have a meaningful mentor</div></div>
+    <div class="stat"><div class="stat-num">18.8%</div><div class="stat-label">of children grow up with neither parent present</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="inner two-col">
+    <div class="about-text">
+      <div class="eyebrow">WHO WE ARE</div>
+      <h2>UNASHAMED.<br><span style="color:var(--red)">Romans 1:16.</span></h2>
+      <p>One6Teen Foundation (116) is a registered South African Non-Profit Company built on a single conviction: a generation without formation is a generation without direction. We exist to restore intentional mentorship and relational leadership in the lives of young people ages 13-25.</p>
+      <p>We step into the gaps left by absent fathers and missing role models, equipping youth through faith-informed mentorship, leadership development, creative expression, and sport.</p>
+      <p>We are not building a programme. We are building a movement. And movements need people willing to show up consistently for the generation that needs them most.</p>
+    </div>
+    <div>
+      <div class="block-card"><div class="block-label">VISION</div><div class="block-text">A generation formed, guided, and empowered to rise as confident leaders who transform their communities, society, and world into places of hope, opportunity, and lasting impact.</div></div>
+      <div class="block-card"><div class="block-label">MISSION</div><div class="block-text">To restore intentional mentorship and relational leadership in the lives of young people by stepping into the gaps left by absent fathers and role models.</div></div>
+      <div class="block-card"><div class="block-label">TAGLINE</div><div class="block-text">UNASHAMED. For I am not ashamed of the gospel of Christ, for it is the power of God to salvation for everyone who believes. Romans 1:16</div></div>
+      <div class="values-box">
+        <div class="values-label">CORE VALUES</div>
+        <div class="values-tags">
+          <span class="value-tag">Faith</span><span class="value-tag">Character</span><span class="value-tag">Courage</span><span class="value-tag">Discipline</span><span class="value-tag">Empowerment</span><span class="value-tag">Community</span><span class="value-tag">Excellence</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMMES -->
+<section id="programmes">
+  <div class="inner">
+    <div class="section-header">
+      <div class="eyebrow">OUR INITIATIVES</div>
+      <h2>One Formation Journey. Many Entry Points.</h2>
+      <p>Not every young person enters through the same door. Every path leads to the same destination: identity, character, and courageous leadership.</p>
+    </div>
+    <div class="grid-3">
+      <div class="prog-card"><div class="prog-tag">ACTIVE</div><h3>Mentorship Circles</h3><p>Structured, recurring groups in high schools and communities where young people are formed by consistent, caring adults who show up week after week.</p></div>
+      <div class="prog-card"><div class="prog-tag">ACTIVE</div><h3>Worship Circles</h3><p>Faith-centred creative gatherings using music, arts, and expression as vehicles for healing, identity, and belonging.</p></div>
+      <div class="prog-card"><div class="prog-tag">ACTIVE</div><h3>Living Room Sessions</h3><p>Monthly evenings of worship held in a private home. Intimate, warm, and deeply relational. 20-40 people. Real community.</p></div>
+      <div class="prog-card"><div class="prog-tag">ACTIVE</div><h3>University Worship</h3><p>Formation and worship taken directly onto campuses where students navigate identity without the support structures they had in school.</p></div>
+      <div class="prog-card"><div class="prog-tag">ACTIVE</div><h3>Dads Talks</h3><p>Honest conversations for fathers and father figures about presence, purpose, and what the next generation needs from the men in their lives.</p></div>
+      <div class="prog-card"><div class="prog-tag">MONTHLY</div><h3>The 116 Podcast</h3><p>Monthly conversations about fatherhood, identity, faith, and courage. Raw. Honest. Timely.</p></div>
+      <div class="prog-card"><div class="prog-tag">EVENTS</div><h3>UNASHAMED Night</h3><p>Our flagship talent showcase. A stage where young people perform, express, and are genuinely celebrated. Courage through creative expression.</p></div>
+      <div class="prog-card"><div class="prog-tag">DAILY</div><h3>1:16 Prayer Movement</h3><p>Every day at 1:16pm, people across South Africa pause to pray for the next generation. A simple act. A movement.</p></div>
+      <div class="prog-card green"><div class="prog-tag">COMING SOON</div><h3>Rooted and Rising</h3><p>Our flagship personal formation journey. A structured, immersive experience taking a young person to a deep sense of identity and purpose.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PASS IT DOWN -->
+<section id="passitdown">
+  <div class="inner">
+    <div class="pid-intro">
+      <div class="eyebrow">CASCADING MENTORSHIP MODEL</div>
+      <h2>Pass It Down.</h2>
+      <p>No one is too young to lead. No one is too experienced to still need guidance. Everyone in the chain is simultaneously being poured into and pouring out.</p>
+    </div>
+    <div class="pid-grid">
+      <div class="pid-card red-bg">
+        <div class="pid-tier">TIER 1</div>
+        <h3>University Mentors</h3>
+        <div class="pid-sub">University students and young adults</div>
+        <div class="pid-divider"></div>
+        <p>Close enough in age to be relatable. Far enough ahead to be relevant. University students step back into high schools as peer mentors bringing lived experience and a presence no adult can replicate.</p>
+      </div>
+      <div class="pid-card dark-bg">
+        <div class="pid-tier">TIER 2</div>
+        <h3>Senior Learners</h3>
+        <div class="pid-sub">Grade 10, 11, 12 mentoring Grade 8, 9</div>
+        <div class="pid-divider"></div>
+        <p>Within the school, senior learners are trained and deployed as peer mentors. Same corridors. Same culture. Intentional leadership activated, structured, and consistent.</p>
+      </div>
+      <div class="pid-card green-bg">
+        <div class="pid-tier">TIER 3</div>
+        <h3>The Pipeline</h3>
+        <div class="pid-sub">Junior learners becoming future mentors</div>
+        <div class="pid-divider"></div>
+        <p>Every young person being mentored today is a future mentor. As they grow, they move up the chain. The movement multiplies through people, not budget.</p>
+      </div>
+    </div>
+    <div class="pid-why"><strong>WHY IT WORKS: </strong><span>Peer influence is one of the most powerful forces in a young person's life. Pass It Down does not fight that force. It redirects it.</span></div>
+  </div>
+</section>
+
+<!-- CAMP -->
+<section id="camp">
+  <div class="inner camp-grid">
+    <div class="camp-left">
+      <div class="eyebrow">ANNUAL FLAGSHIP GATHERING</div>
+      <h2>The Formation Camp.</h2>
+      <p style="font-style:italic;color:var(--white)">Once a year. Every generation. Something permanent.</p>
+      <p>The Formation Camp is One6Teen's annual gathering. For three days, youth, fathers, and mentors step out of their ordinary environments and into something intentional.</p>
+      <p>It is not a programme. It is an encounter where walls come down, where fathers speak honestly to their children, and where young people discover something about themselves they could not find anywhere else.</p>
+      <div class="camp-quote">"Three days where fathers show up, mentors invest, and young people discover who they were always meant to be."</div>
+    </div>
+    <div class="camp-hearts">
+      <div class="heart-card"><h4>Generations Together</h4><p>Youth, dads, and mentors in the same space, around the same fire, in the same movement. The generation gap closes here.</p></div>
+      <div class="heart-card"><h4>Presence Over Programme</h4><p>Every activity exists to create genuine human presence. Adults who are fully there. Young people who feel fully seen.</p></div>
+      <div class="heart-card"><h4>Identity Formed</h4><p>Three days of intentional formation. Being asked the questions that matter, being challenged, being celebrated.</p></div>
+      <div class="heart-card"><h4>Sent Out With Purpose</h4><p>The camp ends with a commissioning. Every person leaves with purpose and an accountability partner to carry it with them.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTIVE -->
+<section id="collective">
+  <div class="collective-bg">116</div>
+  <div class="inner collective-grid">
+    <div class="collective-left">
+      <div class="eyebrow" style="color:#FFCCCC">PERFORMANCE ARTS PLATFORM</div>
+      <h2>The 116 Collective.</h2>
+      <p>One6Teen's developing community of performance artists, singers, musicians, and creatives being intentionally mentored, trained, and prepared for real platforms.</p>
+      <p>This is not entertainment for its own sake. It is formation through exposure, and exposure through excellence.</p>
+      <div class="collective-quote">"If you have a stage, we have artists who are ready for it."</div>
+    </div>
+    <div class="collective-right">
+      <p>The 116 Collective performs at corporate events, embassy functions, gala dinners, and high-profile platforms. Every performance is formation through the discipline of craft and the experience of a real stage.</p>
+      <div class="platform-list">
+        <div class="platform-item"><span>-></span> Corporate Events and Gala Dinners</div>
+        <div class="platform-item"><span>-></span> Embassy and Government Functions</div>
+        <div class="platform-item"><span>-></span> Awards Ceremonies</div>
+        <div class="platform-item"><span>-></span> Community and Church Events</div>
+        <div class="platform-item"><span>-></span> High-Profile Public Platforms</div>
+      </div>
+      <a href="#contact" class="btn-primary">BOOK THE COLLECTIVE</a>
+    </div>
+  </div>
+</section>
+
+<!-- GET INVOLVED -->
+<section id="involve">
+  <div class="inner">
+    <div class="section-header">
+      <div class="eyebrow">JOIN THE MOVEMENT</div>
+      <h2>There is a role for everyone.</h2>
+    </div>
+    <div class="grid-2">
+      <div class="involve-card"><div class="involve-who">FOR CORPORATES</div><h3>CSI Partnership</h3><p>Sponsor a Mentorship Circle. Send employees as trained mentors. Fund UNASHAMED Night. Create internships for 116 alumni. Gain measurable CSR impact and a genuine connection to the next generation.</p><a href="#contact" class="btn-red-outline">PARTNER WITH US -></a></div>
+      <div class="involve-card"><div class="involve-who">FOR CHURCHES AND COMMUNITIES</div><h3>Open Your Doors</h3><p>Host a Living Room Session. Mobilise your congregation as mentors. Partner in Dads Talks. We bring the curriculum and structure. You open the door.</p><a href="#contact" class="btn-red-outline">GET IN TOUCH -></a></div>
+      <div class="involve-card"><div class="involve-who">FOR INDIVIDUALS</div><h3>Become a Mentor</h3><p>No formal qualification required. Just character, consistency, and a genuine commitment to showing up for young people. All mentors receive training and support.</p><a href="#contact" class="btn-red-outline">APPLY TO MENTOR -></a></div>
+      <div class="involve-card"><div class="involve-who">FOR SCHOOLS</div><h3>Bring 116 In</h3><p>One6Teen operates directly in high schools running Mentorship Circles, formation sessions, and the Pass It Down model. If you are a principal or teacher, let us talk.</p><a href="#contact" class="btn-red-outline">CONTACT US -></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE -->
+<section id="donate">
+  <div class="inner">
+    <div class="section-header donate-header">
+      <div class="eyebrow">FINANCIAL PARTNERSHIP</div>
+      <h2>Every rand forms a life.</h2>
+      <p>It costs approximately <strong style="color:var(--white)">R2,540 per person per year</strong> to run One6Teen's full mentorship programme, and <strong style="color:var(--white)">R1,795 per person</strong> for the Formation Camp.</p>
+    </div>
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('monthly')">MONTHLY GIVING</button>
+      <button class="tab" onclick="showTab('onceof')">ONCE-OFF GIFTS</button>
+      <button class="tab" onclick="showTab('costs')">COST BREAKDOWN</button>
+    </div>
+    <div id="tab-monthly" class="tab-content active">
+      <div class="grid-3">
+        <div class="tier-card"><div class="tier-name">COMMUNITY PARTNER</div><div class="tier-amount">R116</div><div class="tier-freq">/month</div><div class="tier-divider"></div><div class="tier-impact">Our entry-level giving circle accessible to every South African. R116 partners collectively sustain One6Teen's day-to-day mentorship.</div></div>
+        <div class="tier-card"><div class="tier-name">FORMATION PARTNER</div><div class="tier-amount">R500</div><div class="tier-freq">/month</div><div class="tier-divider"></div><div class="tier-impact">Sponsors one young person's full participation in a Mentorship Circle for an entire month.</div></div>
+        <div class="tier-card"><div class="tier-name">WORSHIP PARTNER</div><div class="tier-amount">R1,000</div><div class="tier-freq">/month</div><div class="tier-divider"></div><div class="tier-impact">Covers the full cost of a monthly Living Room Session or University Worship gathering.</div></div>
+        <div class="tier-card" style="border-top-color:var(--dred)"><div class="tier-name">LEADERSHIP PARTNER</div><div class="tier-amount">R2,500</div><div class="tier-freq">/month</div><div class="tier-divider"></div><div class="tier-impact">Funds a full month of programme delivery including circles, sessions, Dads Talks, and coordination.</div></div>
+        <div class="tier-card" style="border-top-color:var(--dred)"><div class="tier-name">IMPACT PARTNER</div><div class="tier-amount">R5,000</div><div class="tier-freq">/month</div><div class="tier-divider"></div><div class="tier-impact">Enables One6Teen to reach new schools, communities, and campuses every month.</div></div>
+        <div class="tier-card" style="border-top-color:var(--dred)"><div class="tier-name">FOUNDATION PARTNER</div><div class="tier-amount">R10,000</div><div class="tier-freq">/month</div><div class="tier-divider"></div><div class="tier-impact">Our highest monthly tier. Named in our annual impact report. Directly shapes long-term sustainability.</div></div>
+      </div>
+    </div>
+    <div id="tab-onceof" class="tab-content">
+      <div class="once-row"><div class="once-amount">R5,000</div><div class="once-impact">Covers the full cost of one Living Room Session.</div></div>
+      <div class="once-row"><div class="once-amount">R10,000</div><div class="once-impact">Sponsors 10 young people to attend The Formation Camp.</div></div>
+      <div class="once-row"><div class="once-amount">R20,000</div><div class="once-impact">Funds a complete UNASHAMED Night including venue, sound, production, and celebration.</div></div>
+      <div class="once-row"><div class="once-amount">R35,000</div><div class="once-impact">A major contribution toward the instrument collection directly into young musicians' hands.</div></div>
+      <div class="once-row"><div class="once-amount">R50,000</div><div class="once-impact">A legacy gift that sponsors an entire quarter of One6Teen's full operations.</div></div>
+    </div>
+    <div id="tab-costs" class="tab-content">
+      <div class="costs-grid">
+        <div>
+          <div class="cost-label red">ANNUAL PROGRAMME - PER PERSON</div>
+          <div class="cost-row"><span class="cost-name">Mentor coordination and training</span><span class="cost-val red">R800</span></div>
+          <div class="cost-row"><span class="cost-name">Materials and workbooks</span><span class="cost-val red">R350</span></div>
+          <div class="cost-row"><span class="cost-name">Circle refreshments</span><span class="cost-val red">R390</span></div>
+          <div class="cost-row"><span class="cost-name">Transport subsidy</span><span class="cost-val red">R600</span></div>
+          <div class="cost-row"><span class="cost-name">Admin and coordination</span><span class="cost-val red">R200</span></div>
+          <div class="cost-row"><span class="cost-name">Events (shared)</span><span class="cost-val red">R200</span></div>
+          <div class="cost-total"><span style="color:var(--white)">TOTAL ANNUAL</span><span style="color:var(--red)">R2,540</span></div>
+        </div>
+        <div>
+          <div class="cost-label green">FORMATION CAMP - PER PERSON (75 PEOPLE)</div>
+          <div class="cost-row"><span class="cost-name">Venue / accommodation (3 nights)</span><span class="cost-val green">R600</span></div>
+          <div class="cost-row"><span class="cost-name">Catering all meals (3 days)</span><span class="cost-val green">R645</span></div>
+          <div class="cost-row"><span class="cost-name">Transport (return)</span><span class="cost-val green">R140</span></div>
+          <div class="cost-row"><span class="cost-name">Programme materials</span><span class="cost-val green">R80</span></div>
+          <div class="cost-row"><span class="cost-name">Activities and team building</span><span class="cost-val green">R120</span></div>
+          <div class="cost-row"><span class="cost-name">Sound / PA</span><span class="cost-val green">R47</span></div>
+          <div class="cost-row"><span class="cost-name">Contingency (10%)</span><span class="cost-val green">R163</span></div>
+          <div class="cost-total"><span style="color:var(--white)">TOTAL CAMP</span><span style="color:#5CB88A">R1,795</span></div>
+          <div class="allin-box"><div class="allin-label">ALL-IN PER PERSON PER YEAR</div><div class="allin-amount">R4,335</div><div class="allin-sub">Annual programme + Formation Camp</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="banking-bar">
+      <div>
+        <div class="banking-label">BANKING DETAILS</div>
+        <div class="banking-details">FNB &nbsp;|&nbsp; One6Teen Foundation NPC &nbsp;|&nbsp; Account: 63198917347 &nbsp;|&nbsp; Current Account</div>
+        <div class="banking-ref">Reference: Your name or company &nbsp;|&nbsp; NPC K2026049908</div>
+      </div>
+      <div class="banking-right">Set a 1:16pm reminder daily.<br>Pray for the next generation.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="eyebrow">GET IN TOUCH</div>
+    <h2>Let's talk.</h2>
+    <p>Whether you want to partner, volunteer, book the 116 Collective, open your school, or simply find out more, the door is always open.</p>
+    <div class="contact-cards">
+      <div class="contact-card"><div class="contact-label">EMAIL</div><div class="contact-value">one6teenza@gmail.com</div><div class="contact-sub">We respond within 24 hours</div></div>
+      <div class="contact-card"><div class="contact-label">PHONE</div><div class="contact-value">062 789 4413</div><div class="contact-sub">Mon-Fri, 8am-5pm</div></div>
+      <div class="contact-card"><div class="contact-label">WHATSAPP</div><div class="contact-value"><a href="https://wa.me/27627894413" target="_blank" style="position:fixed;bottom:28px;right:28px;z-index:999;background:#25D366;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.4);text-decoration:none;font-size:26px;" title="Chat on WhatsApp">&#128172;</a></div><div class="contact-sub">Message us on WhatsApp</div></div>
+      <div class="contact-card"><div class="contact-label">FACEBOOK</div><div class="contact-value"><a href="https://facebook.com/One6Teen" target="_blank" style="color:var(--white)">One6Teen</a></div><div class="contact-sub">Follow and share the movement</div></div>
+    </div>
+    <div class="location-box">
+      <div class="location-label">LOCATION</div>
+      <div class="location-city">Pretoria, Gauteng - South Africa</div>
+      <div class="location-desc">One6Teen operates primarily in Pretoria and the greater Gauteng area, with a vision to expand across South Africa and beyond. We travel to where young people are.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div><div class="footer-brand">ONE6TEEN FOUNDATION</div><div class="footer-tagline">UNASHAMED &nbsp;|&nbsp; ROMANS 1:16</div></div>
+    <div class="footer-links">
+      <a href="#about">About</a><a href="#programmes">Programmes</a><a href="#passitdown">Pass It Down</a>
+      <a href="#camp">The Camp</a><a href="#collective">116 Collective</a><a href="#involve">Get Involved</a>
+      <a href="#donate">Donate</a><a href="#contact">Contact</a>
+      <a href="https://facebook.com/One6Teen" target="_blank">Facebook</a>
+    </div>
+    <div class="footer-info">NPC K2026049908<br>FNB &nbsp;|&nbsp; Acc: 63198917347<br>one6teen.org</div>
+  </div>
+</footer>
+
+<script>
+  function showTab(name) {
+    document.querySelectorAll('.tab-content').forEach(function(el) { el.classList.remove('active'); });
+    document.querySelectorAll('.tab').forEach(function(el) { el.classList.remove('active'); });
+    document.getElementById('tab-' + name).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  window.addEventListener('scroll', function() {
+    var sections = document.querySelectorAll('section');
+    var navLinks = document.querySelectorAll('.nav-links a');
+    var scrollPos = window.scrollY + window.innerHeight / 2;
+    sections.forEach(function(section) {
+      if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+        navLinks.forEach(function(link) { link.classList.remove('active'); });
+        var active = document.querySelector('.nav-links a[href="#' + section.id + '"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  });
+</script>
+<a href="https://wa.me/27627894413" target="_blank" style="position:fixed;bottom:28px;right:28px;z-index:999;background:#25D366;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.4);text-decoration:none;" title="Chat on WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+</body>
+</html>
